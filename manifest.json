@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Naukri Campus – Projects Auto Filler",
+  "version": "1.0.0",
+  "description": "Bulk-add / auto-fill the Projects section of your Naukri Campus profile from a JSON list.",
+  "permissions": ["storage", "scripting", "activeTab"],
+  "host_permissions": [
+    "https://*.naukri.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Naukri Projects Auto Filler"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.naukri.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ]
+}

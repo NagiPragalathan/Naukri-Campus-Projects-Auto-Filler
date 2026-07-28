@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="popup.css" />
+  <title>Naukri Projects Auto Filler</title>
+</head>
+<body>
+  <header>
+    <h1>Naukri Projects Auto&nbsp;Filler</h1>
+    <span id="pageState" class="pill">checking…</span>
+  </header>
+
+  <section class="row">
+    <label class="chk"><input type="checkbox" id="skipExisting" checked /> Skip projects already on profile</label>
+    <label class="chk"><span>Speed</span>
+      <select id="speed">
+        <option value="0.7">Fast</option>
+        <option value="1" selected>Normal</option>
+        <option value="2">Safe / slow</option>
+      </select>
+    </label>
+    <label class="chk"><span>Skill suggestor wait</span>
+      <select id="suggestWait">
+        <option value="6000">6s</option>
+        <option value="9000" selected>9s</option>
+        <option value="15000">15s</option>
+      </select>
+    </label>
+  </section>
+
+  <section class="row">
+    <div class="lbl">
+      Projects JSON
+      <span class="spacer"></span>
+      <button class="link" id="loadDefault">load sample</button>
+      <button class="link" id="format">format</button>
+      <span id="count" class="muted">0 items</span>
+    </div>
+    <textarea id="json" spellcheck="false" placeholder='[{"project_name":"…","duration":"Jan 2025 to Apr 2025","description":"…","key_skills":"Python, Django","project_url":"https://…"}]'></textarea>
+    <div id="jsonErr" class="err"></div>
+  </section>
+
+  <section class="actions">
+    <button id="start" class="primary">Start filling</button>
+    <button id="stop" class="danger" disabled>Stop</button>
+  </section>
+
+  <section class="row">
+    <div class="lbl">Progress <span class="spacer"></span><span id="stats" class="muted"></span></div>
+    <div id="log" class="log"><div class="muted">Idle. Open your Naukri profile page and hit Start.</div></div>
+  </section>
+
+  <script src="default-data.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
